@@ -343,10 +343,10 @@ def run_fever_benchmark(model, sample_size: int = 200, streaming: bool = False):
     try:
         # Use validation split which has proper labels
         if streaming:
-            ds_iter = load_dataset_retry("fever/fever", split="paper_dev", streaming=True, download_config=DC)
+            ds_iter = load_dataset_retry("mwong/fever-evidence-related", split="paper_dev", streaming=True, download_config=DC)
             ds = list(itertools.islice(ds_iter, sample_size))
         else:
-            ds = load_dataset_retry("fever/fever", split="paper_dev", download_config=DC)
+            ds = load_dataset_retry("mwong/fever-evidence-related", split="paper_dev", download_config=DC)
             if sample_size < len(ds):
                 ds = ds.select(range(sample_size))
     except Exception as e:
