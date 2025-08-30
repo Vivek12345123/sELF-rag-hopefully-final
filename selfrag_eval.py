@@ -63,7 +63,7 @@ class SelfRAGModel:
         self.model = LLM(model_path, download_dir=download_dir, dtype=dtype)
         # FIXED: Increased max_tokens from 512 to 1024 for better responses and scoring
         self.sampling_params = SamplingParams(
-            temperature=0.0, top_p=1.0, max_tokens=1024, skip_special_tokens=False
+            temperature=0.0, top_p=1.0, max_tokens=2048, skip_special_tokens=False
         )
 
     def format_prompt(self, input_text, paragraph=None):
